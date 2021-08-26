@@ -45,16 +45,16 @@
     <div class="content">
         <div class="mainDiv">
             <h3>안녕하세요. 로그인을 진행해주세요.</h3><br>
-            <form action="" method="POST">{% csrf_token %}
+            <form action="/signin/" method="POST">{% csrf_token %}
                 <div class="input-group">
                     <span class="input-group-addon">이메일</span>
-                    <input type="email" name='loginEmail' class="form-control" placeholder="이메일을 적어주세요."
+                    <input type="email" name='email' class="form-control" placeholder="이메일을 적어주세요."
                            aria-describedby="basic-addon1">
                 </div>
                 <br>
                 <div class="input-group">
                     <span class="input-group-addon">비밀번호</span>
-                    <input type="password" name='loginPW' class="form-control" placeholder="비밀번호를 적어주세요."
+                    <input type="password" name='pwd' class="form-control" placeholder="비밀번호를 적어주세요."
                            aria-describedby="basic-addon1">
                 </div>
                 <br>

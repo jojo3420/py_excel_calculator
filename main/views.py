@@ -8,8 +8,12 @@ def index(request):
     return render(request, 'main/index.html')
 
 
-def verify_page(request):
-    return HttpResponse('verify page')
+class VerifyView(View):
+    def get(self, request):
+        return render(request, 'main/verify_code.html')
+
+    def post(self, request):
+        pass
 
 
 class SignInView(View):

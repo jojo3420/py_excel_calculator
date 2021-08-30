@@ -24,6 +24,9 @@ def index(request):
     return redirect('signin')
 
 
+def failed_login(request):
+    return render(request, 'main/failed_login.html')
+
 class SignUpView(View):
     def get(self, request):
         return render(request, 'main/signup.html')
@@ -115,17 +118,19 @@ class SignInView(View):
             pwd = sha256.hexdigest()
             if member.pwd == pwd:
                 response = redirect('index_page')
+                # 유저정보 쿠키에 저장
                 # response.set_cookie('member_id', member.id)
 
+                # 유저정보 세션에 저장
                 request.session['email'] = member.email
                 request.session['name'] = member.name
                 return response
             else:
                 # {'msg': '암호를 확인하세요'}
-                return redirect('/signin/')  # 경로 호출
+                return redirect('/failed/')  # 경로 호출
         else:
             #  {'msg': '회원 정보가 존재하지 않습니다.'}
-            return redirect('/signin/')
+            return redirect('failed_login')
 
 
 class LogOutView(View):

@@ -36,38 +36,21 @@
 <div class="container">
     <div class="header">
         <div class="page-header">
-            <a href="/" class="btn btn-default btn-xs" style="margin: 10px">메인화면</a>
-            <h1>Excel Calculate <small>with Django</small></h1>
+            <h1>
+                <a href="/" class="btn btn-default btn-xs" style="margin: 10px">메인화면</a>
+                Excel Calculate <small>with Django</small>
+            </h1>
         </div>
     </div>
-    <div class='body'>
-        <div class="resultDiv">
-            <h3> * Excel 결과 확인 *</h3>
+    <div class="content">
+        <div class="mainDiv">
+            <h3>로그인 실패</h3><br>
+            <div>
+                <p>회원정보가 없거나 잘못된 비밀번호 입니다. 재시도해 주세요.</p>
+            </div>
+            <a href="/signin/">로그인하기</a><br/>
+            <a href="/signup/">회원가입하기</a>
         </div>
-        <table>
-            <thead>
-            <tr>
-                <td>Grade</td>
-                <td>min</td>
-                <td>max</td>
-                <td>Average</td>
-            </tr>
-            </thead>
-            <tbody>
-            {% for grade, data in excel_data.items %}
-                <tr>
-                    <td>{{ grade }}</td>
-                    <td>{{ data.min }}</td>
-                    <td>{{ data.max }}</td>
-                    <td>{{ data.avg }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-
-        </table>
-
-
-        <hr>
     </div>
     <div class="panel-footer">
         실전예제로 배우는 Django. Project3-ExcelCalculate
